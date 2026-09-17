@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.channels.Channels;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -130,6 +131,19 @@ public class EEGModel {
 	 * @throws IOException Thrown if the file can't be written.
 	 */
 	public void saveFile(String fileName) throws IOException {
+		
+		//quiero leer la lista measurements
+		File f = new File(fileName);
+		FileOutputStream fis = new FileOutputStream(f);
+		PrintStream fich = new PrintStream(fis);
+		
+		for (int i=0; i<measurements.size(); i++) { //lee la lista hacia abajo
+			
+			fich.print(i +"," + measurements.get(i));
+		}
+		fich.close(); //cierro el fichero: si no la info no queda guardada en el fichero
+	
+		
 		// TODO
 		
 	}
