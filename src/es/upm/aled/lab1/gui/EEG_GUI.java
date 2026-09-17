@@ -32,18 +32,18 @@ public class EEG_GUI {
 	 * 
 	 * @param minY      Min value for each channel.
 	 * @param maxY      Max value for each channel.
-	 * @param nChannels Number of channels per Measurement. The length of minY, maxY and nChannels muys be the same.
+	 * @param nChannels Number of channels per Measurement. The length of minY, maxY and nChannels must be the same.
 	 * @param frequency Frequency at which the Measurements were sampled.
 	 * @param sRate     Rate at which the Measurements are plotted (in ms).
 	 */
 	public EEG_GUI(float[] minY, float[] maxY, int nChannels, float frequency, int sRate) {
 		this.Y = 600 / nChannels;
 		this.X = 1250;
-		plots = new Plot2D[nChannels];
+		plots = new Plot2D[nChannels]; //si quiero puedo poner this
 		y_actual = new float[nChannels];
 		x_actual = new float[nChannels];
-		for (int i = 0; i < nChannels; i++)
-			plots[i] = new Plot2D(X, Y);
+		for (int i = 0; i < nChannels; i++) //recorre el arr
+			plots[i] = new Plot2D(X, Y); //rellena el array con valores dados (antes solo creado con el tamaño)
 		this.period = X / frequency;
 		this.maxY = maxY;
 		this.minY = minY;
