@@ -260,6 +260,9 @@ public class EEGModel {
 	}
 
 	public static void main(String[] args) {
+		
+		saveFile(fich);
+		
 		if (args.length > 0) {
 			EEGModel eeg = new EEGModel(args[0]);
 			eeg.plotData();
@@ -271,5 +274,6 @@ public class EEGModel {
 			// TODO
 			
 		}
+		
 	}
 }
